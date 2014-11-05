@@ -18,11 +18,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Turn on the Lights!"
+        android:text="Turn the Lights Blue!"
         android:id="@+id/button"
-        android:layout_marginTop="271dp"
-        android:layout_alignLeft="@+id/IPAddress"
-        android:layout_alignStart="@+id/IPAddress"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
         android:layout_below="@+id/IPAddress" />
     <EditText
         android:layout_width="wrap_content"
@@ -33,21 +32,4 @@
         android:layout_marginTop="103dp"
         android:hint="Input IP Address..." />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Red"
-        android:id="@+id/chooseRed"
-        android:layout_below="@+id/IPAddress"
-        android:layout_alignLeft="@+id/IPAddress"
-        android:layout_alignStart="@+id/IPAddress" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Blue"
-        android:id="@+id/chooseBlue"
-        android:layout_below="@+id/chooseRed"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
 </RelativeLayout>

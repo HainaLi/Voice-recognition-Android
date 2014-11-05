@@ -8,36 +8,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
 
-/**import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.client.methods.*;
-import org.apache.http.entity.StringEntity;**/
-
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-
-import java.io.UnsupportedEncodingException;
-
+import java.io.OutputStreamWriter;
+import java.net.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import org.json.simple.*;
 
 
 public class Home extends Activity {
 
     String IPAdd = new String();
-    String lights = new String();
     JSONObject obj = new JSONObject();
-    private CloseableHttpClient httpclient;
+    JSONObject actual = new JSONObject();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         final Button button = (Button) findViewById(R.id.button);
+        final EditText ipAddress = (EditText) findViewById(R.id.IPAddress);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                final EditText ipAddress = (EditText) findViewById(R.id.IPAddress);
                 if(ipAddress.getText() != null)
                 {
                     IPAdd = ipAddress.getText().toString();
@@ -46,59 +37,80 @@ public class Home extends Activity {
                 {
                     System.out.println("No IP Address Entered!");
                 }
-                /**final EditText jsonLights = (EditText) findViewById(R.id.jsonLights);
-                lights = jsonLights.getText().toString();
-                try {
-                    StringEntity lighters = new StringEntity(lights);
-                    HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httpPost = new HttpPost(ipAddress + "/rpi");
-                    httpPost.setEntity(lighters);
-                }
-                catch (UnsupportedEncodingException e) {
-                    System.out.println("Encoding Error!");
-                }**/
 
                 JSONArray array = new JSONArray();
 
-                JSONObject lightIdJSON = new JSONObject();
-                JSONObject redJSON = new JSONObject();
-                JSONObject greenJSON = new JSONObject();
-                JSONObject blueJSON = new JSONObject();
-                JSONObject intensityJSON = new JSONObject();
-
                 int lightId = 1;
-                int red = 255;
+                int red = 0;
                 int green = 0;
-                int blue = 0;
-                int intensity = 1;
+                int blue = 255;
+                double intensity = 1.0;
 
-                lightIdJSON.put("lightId", lightId);
-                redJSON.put("red", red);
-                greenJSON.put("green", green);
-                blueJSON.put("blue", blue);
-                intensityJSON.put("intensity", intensity);
 
-                array.add(lightIdJSON);
-                array.add(redJSON);
-                array.add(greenJSON);
-                array.add(blueJSON);
-                array.add(intensityJSON);
+                obj.put("lightId", lightId);
+                obj.put("red", red);
+                obj.put("green", green);
+                obj.put("blue", blue);
+                obj.put("intensity", intensity);
 
-                obj.put("lights", array);
-                obj.put("propagate", "true");
+
+                array.add(obj);
+                actual.put("lights", array);
+                actual.put("propagate", true);
+                final String url = "http://" + IPAdd + "/rpi";
 
                 try {
-                    StringEntity lighters = new StringEntity(obj.toString());
-                    //HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httpPost = new HttpPost("http://" + ipAddress + "/rpi");
-                    httpPost.setEntity(lighters);
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                StringBuilder sb = new StringBuilder();
+                                URL connect = new URL(url);
+                                System.out.println(connect);
+                                HttpURLConnection urlConnection = (HttpURLConnection) connect.openConnection();
+                                urlConnection.setDoOutput(true);
+                                urlConnection.setRequestMethod("POST");
+                                urlConnection.setUseCaches(false);
+                                urlConnection.setConnectTimeout(10000);
+                                urlConnection.setReadTimeout(10000);
+                                urlConnection.setRequestProperty("Content-Type", "application/json");
+                                urlConnection.connect();
+                                OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
+                                out.write(actual.toString());
+                                out.close();
 
-                    CloseableHttpResponse response = (CloseableHttpResponse) httpclient.execute(httpPost);
-                    //httpPost.completed();
-                    response.close();
+                                int HttpResult =urlConnection.getResponseCode();
+                                if(HttpResult ==HttpURLConnection.HTTP_OK){
+                                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                                            urlConnection.getInputStream(),"utf-8"));
+                                    String line = null;
+                                    while ((line = br.readLine()) != null) {
+                                        sb.append(line + "\n");
+                                    }
+                                    br.close();
+
+                                    System.out.println(""+sb.toString());
+
+                                }else{
+                                    System.out.println(urlConnection.getResponseMessage());
+                                }
+
+
+
+                                System.out.println("Done!");
+                            }
+                            catch (Exception e)
+                            {
+                                System.out.println("Internet Error Thing");
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+
                 }
                 catch (Exception e) {
-                    System.out.println("Encoding Error!");
+                    Log.d("App", obj.toString());
+                    e.printStackTrace();
              }
         }
         });
@@ -114,9 +126,6 @@ public class Home extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
