@@ -154,9 +154,11 @@ public class Home extends Activity {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && ipAddress.getText() != null) {
             ArrayList<String> matches = data
                     .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            IPAdd = ipAddress.getText().toString();
-
+            //IPAdd = ipAddress.getText().toString();
+            IPAdd = "http://cs4720.cs.virginia.edu/rpi/?username=hl3wb";
+            System.out.println("No: " + matches.get(0).equals("no"));
             if (matches.get(0).equals("yes")) {
+
                 sendPostRequest(IPAdd, 1, 0, 255, 0, 1.0);
             }
 
@@ -182,8 +184,8 @@ public class Home extends Activity {
         array.add(obj);
         actual.put("lights", array);
         actual.put("propagate", true);
-        final String url = "http://" + ip + "/rpi";
-
+        //final String url = "http://" + ip + "/rpi";
+        final String url = ip;
         try {
             new Thread() {
                 @Override
