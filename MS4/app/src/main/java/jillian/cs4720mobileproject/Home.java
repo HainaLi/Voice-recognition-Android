@@ -156,13 +156,13 @@ public class Home extends Activity {
                     .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             //IPAdd = ipAddress.getText().toString();
             IPAdd = "http://cs4720.cs.virginia.edu/rpi/?username=hl3wb";
-            System.out.println("No: " + matches.get(0).equals("no"));
-            if (matches.get(0).equals("yes")) {
+            System.out.println("Match Result " + matches.get(0));
+            if (matches.get(0).equalsIgnoreCase("yes")) {
 
                 sendPostRequest(IPAdd, 1, 0, 255, 0, 1.0);
             }
 
-            else if (matches.get(0).equals("no")){
+            else if (matches.get(0).equalsIgnoreCase("no")){
                 sendPostRequest(IPAdd, 1, 255, 0, 0, 1.0);
             }
 
