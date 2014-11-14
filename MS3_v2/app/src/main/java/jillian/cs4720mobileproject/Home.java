@@ -24,11 +24,31 @@ public class Home extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final Button button = (Button) findViewById(R.id.button);
+        final Button turnLightsOnButton = (Button) findViewById(R.id.button);
+        final Button startSoundDetection = (Button) findViewById(R.id.startSoundDetection);
+        final Button stopSoundDetection = (Button) findViewById(R.id.stopSoundDetection);
         final EditText ipAddress = (EditText) findViewById(R.id.IPAddress);
+        final TextView soundAlert = (TextView) findViewById(R.id.soundDetected);
+        final SoundMeter sm = new SoundMeter();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        startSoundDetection.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                sm.start();
+            }
+
+        });
+        stopSoundDetection.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sm.stop();
+                if (sm.getAmplitude() > 0) {
+                    soundAlert.setText("Sound Detected!");
+                }
+            }
+
+        });
+
+        turnLightsOnButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { //listener for the button that turns light on
                 if(ipAddress.getText() != null)
                 {
                     IPAdd = ipAddress.getText().toString();

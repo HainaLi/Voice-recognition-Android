@@ -20,9 +20,8 @@
         android:layout_height="wrap_content"
         android:text="Turn the Lights Blue!"
         android:id="@+id/button"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_below="@+id/IPAddress" />
+        android:layout_below="@+id/IPAddress"
+        android:layout_centerHorizontal="true" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,5 +30,36 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="103dp"
         android:hint="Input IP Address..." />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Sound Detection"
+        android:id="@+id/startSoundDetection"
+        android:layout_toStartOf="@+id/stopSoundDetection"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginRight="80dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Sound Detection"
+        android:id="@+id/stopSoundDetection"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_alignBottom="@+id/startSoundDetection"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="80dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sound Not Detected Yet"
+        android:id="@+id/soundDetected"
+        android:layout_below="@+id/startSoundDetection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
 
 </RelativeLayout>
