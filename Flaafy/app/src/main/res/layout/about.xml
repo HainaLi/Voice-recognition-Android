@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="#f72e2b2b">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -10,20 +11,24 @@
         android:id="@+id/welcome"
         android:gravity="start"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffcfcfcf"
+        android:textSize="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Speech of Light is a speech training app that allows you to enter a word and speak it. It provides feedback on how correct your pronunciation of the word is. "
+        android:text="Speech of Light is a speech training app that allows you to enter a word and speak it. It provides feedback on how correct your pronunciation of the word is. Click on the menu button in the top  left corner to get started! "
         android:id="@+id/textView"
         android:gravity="center"
         android:layout_below="@+id/welcome"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp" />
+        android:layout_marginRight="100dp"
+        android:textColor="#ffcfcfcf"
+        android:textSize="50dp" />
 
 
 </RelativeLayout>

@@ -1,8 +1,5 @@
 package jillian.cs4720mobileproject;
 
-import android.support.v4.app.NavUtils;
-
-
 
 import android.app.Activity;
 import android.content.Intent;

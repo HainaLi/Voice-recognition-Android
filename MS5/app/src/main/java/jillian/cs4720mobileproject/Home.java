@@ -214,14 +214,14 @@ public class Home extends Activity {
             //float[] scores = data.getFloatArrayExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES);
             IPAdd = ipAddress.getText().toString();
             word = sayText.getText().toString();
-            IPAdd = "http://cs4720.cs.virginia.edu/rpi/?username=hl3wb";
+            //IPAdd = "http://cs4720.cs.virginia.edu/rpi/?username=hl3wb";
             System.out.println(matches);
             System.out.println("Match Result " + matches.get(0));
             System.out.println("Word: " + word);
             if(correct == 5) {
                 if (matches.get(0).equalsIgnoreCase(word)) {
 
-                    sendPostRequest(IPAdd, 0, 0, 255, 0, 1.0);
+                    sendPostRequest(IPAdd, 1, 0, 255, 0, 1.0);
                 } else if (matches.contains(word)) {
                     int index = matches.indexOf(word);
                     sendPostRequest(IPAdd, index, 0, 255, 0, 1.0);

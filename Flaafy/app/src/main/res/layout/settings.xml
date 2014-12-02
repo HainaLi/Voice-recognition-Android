@@ -3,7 +3,8 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/settingsLayout"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:background="#f72e2b2b">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +14,9 @@
         android:id="@+id/correctSens"
         android:layout_marginTop="181dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffcfcfcf"
+        android:textSize="50dp" />
 
     <SeekBar
         android:layout_width="wrap_content"
@@ -25,7 +28,9 @@
         android:layout_alignLeft="@+id/correctSens"
         android:layout_alignStart="@+id/correctSens"
         android:layout_alignRight="@+id/correctSens"
-        android:layout_alignEnd="@+id/correctSens" />
+        android:layout_alignEnd="@+id/correctSens"
+        android:progressTint="#ffcfcfcf"
+        android:thumbTint="#ff33c8ff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,6 +40,8 @@
         android:id="@+id/sensitivity_instructions"
         android:gravity="center_vertical|center_horizontal"
         android:layout_below="@+id/correctness"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffcfcfcf"
+        android:textSize="25dp" />
 
 </RelativeLayout>

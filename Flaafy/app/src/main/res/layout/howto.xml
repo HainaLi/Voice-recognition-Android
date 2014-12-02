@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="#f72e2b2b">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,12 +11,11 @@
         android:text="1. Choose word: Type your word in, generate a random word, or use the word of the day.  "
         android:id="@+id/instruction1"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="160dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp" />
+        android:textColor="#ffcfcfcf"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,9 +24,9 @@
         android:text="2. Speak: Press the Speak Button to start detecting your voice. "
         android:id="@+id/instruction2"
         android:gravity="center"
-        android:layout_alignTop="@+id/instruction1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp" />
+        android:textColor="#ffcfcfcf"
+        android:textSize="50sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
