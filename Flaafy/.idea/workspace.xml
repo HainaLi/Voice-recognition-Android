@@ -83,10 +83,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Home.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Home.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jillian/cs4720mobileproject/Home.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.605898" vertical-offset="2074" max-vertical-offset="5287">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4030" max-vertical-offset="5287">
               <caret line="284" column="32" selection-start-line="284" selection-start-column="32" selection-end-line="284" selection-end-column="32" />
               <folding>
                 <element signature="e#1840#1991#0" expanded="true" />
@@ -106,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="splashlayout.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="splashlayout.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splashlayout.xml">
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="629">
@@ -150,8 +150,8 @@
     </FindUsagesManager>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/MS4.jks" />
-    <option name="KEY_ALIAS" value="MS4Keystore" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/Flaffy.jks" />
+    <option name="KEY_ALIAS" value="UVA" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="GradleLocalSettings">
@@ -1142,6 +1142,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs/javax.inject.jar" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="015d2856b2480a0a" />
     <property name="FullScreen" value="false" />
+    <property name="ExportApk.ApkPath" value="C:\Users\hannah.li\Documents\GitHub\cs4720MobileProject\Flaafy\app" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.BuildType" value="release" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -1828,17 +1831,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splashlayout.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="666">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jillian/cs4720mobileproject/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="1098">
@@ -1857,13 +1849,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jillian/cs4720mobileproject/Home.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.605898" vertical-offset="2074" max-vertical-offset="5287">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4030" max-vertical-offset="5287">
           <caret line="284" column="32" selection-start-line="284" selection-start-column="32" selection-end-line="284" selection-end-column="32" />
           <folding>
             <element signature="e#1840#1991#0" expanded="true" />
             <element signature="e#1980#1981#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splashlayout.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="666">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>
