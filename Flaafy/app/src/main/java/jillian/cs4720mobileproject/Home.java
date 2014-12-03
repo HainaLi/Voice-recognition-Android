@@ -40,7 +40,7 @@ public class Home extends Fragment {
     private static int SETTINGS_REQUEST = 2;
     String IPAdd = new String();
     JSONObject obj = new JSONObject();
-    JSONObject actual = new JSONObject();
+    String actual;
     String word = "";
     View rootview;
 
@@ -276,9 +276,8 @@ public class Home extends Fragment {
             obj.put("blue", blue);
             obj.put("intensity", intensity);
 
-            array.add(obj);
-            actual.put("lights", array);
-            actual.put("propagate", true);
+            actual = "{\"lights\": [" + obj + "], \"propagate\": true}";
+
         }
         catch (Exception e)
         {
@@ -286,6 +285,7 @@ public class Home extends Fragment {
             e.printStackTrace();
         }
         final String url = "http://" + ip + "/rpi";
+
 
         try {
             new Thread() {
