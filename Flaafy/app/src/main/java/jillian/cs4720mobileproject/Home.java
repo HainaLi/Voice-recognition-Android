@@ -219,6 +219,7 @@ public class Home extends Fragment {
             correct = Integer.parseInt(correctness);
             //System.out.println(correct);
         }
+        //System.out.println(correct);
         final EditText ipAddress = (EditText) rootview.findViewById(R.id.IPAddress);
         final EditText sayText = (EditText) rootview.findViewById(R.id.sayThis);
 
@@ -240,15 +241,16 @@ public class Home extends Fragment {
                     int index = matches.indexOf(word);
                     sendPostRequest(IPAdd, index, 0, 255, 0, 1.0);
                     System.out.println("Close but no cigar");
+                    ((TextView)rootview.findViewById(R.id.resultText)).setText("Close but not quite!");
                 } else {
                     sendPostRequest(IPAdd, 0, 255, 0, 0, 1.0);
+                    ((TextView)rootview.findViewById(R.id.resultText)).setText("Sorry, try again.");
                 }
             }
             if(correct == 4 || correct ==3) {
                 int index = -1;
                 if(matches.contains(word)) {
                     index = matches.indexOf(word);
-                    ((TextView)rootview.findViewById(R.id.resultText)).setText("Close but not quite!");
                 }
                 if(index < 3 && index > 0){
                     sendPostRequest(IPAdd, 0, 0, 255, 0, 1.0);
@@ -258,7 +260,6 @@ public class Home extends Fragment {
                     sendPostRequest(IPAdd, index, 0, 255, 0, 1.0);
                 }
                 else {
-                    ((TextView)rootview.findViewById(R.id.resultText)).setText("Sorry, try again.");
                     sendPostRequest(IPAdd, 0, 255, 0, 0, 1.0);
                 }
 

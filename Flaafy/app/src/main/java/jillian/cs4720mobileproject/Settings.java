@@ -8,18 +8,19 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 
 /**
  * Created by monica on 11/21/14.
  */
 public class Settings extends Fragment{
 
+    View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootview = inflater.inflate(R.layout.settings, container, false);
-        final Intent intent = new Intent(getActivity(), Home.class);
-
+        rootview = inflater.inflate(R.layout.settings, container, false);
+        final Intent intent = new Intent();
         SeekBar correctness = (SeekBar)(rootview.findViewById(R.id.correctness));
 
         correctness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
@@ -30,7 +31,7 @@ public class Settings extends Fragment{
                 // TODO Auto-generated method stub
                 intent.putExtra("correctness", String.valueOf(progress));
                 System.out.println(String.valueOf(progress));
-                //Activity.setResult(Activity.RESULT_OK, intent);
+                getActivity().setResult(Activity.RESULT_OK, intent);
 
             }
 
@@ -45,8 +46,10 @@ public class Settings extends Fragment{
             }
 
         });
+
         return rootview;
     }
+
 
 
 }
